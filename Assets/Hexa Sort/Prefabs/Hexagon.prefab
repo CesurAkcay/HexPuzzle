@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3010268561933511408}
   - component: {fileID: 3946915483138671785}
-  m_Layer: 0
+  - component: {fileID: 6844285624056603272}
+  m_Layer: 7
   m_Name: Hexagon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +47,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 7946866916169823333}
+  collider: {fileID: 6844285624056603272}
+--- !u!64 &6844285624056603272
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5299413551866403220}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4575734979276873811, guid: cd6af039c671a384f8e6644b12f7a4e5, type: 3}
 --- !u!1 &5471436225457925458
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +81,7 @@ GameObject:
   - component: {fileID: 594048818496307869}
   - component: {fileID: 9075461382252483546}
   - component: {fileID: 7946866916169823333}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hexagon Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
