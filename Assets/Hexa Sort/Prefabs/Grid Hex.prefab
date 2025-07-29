@@ -68,6 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8144e924427bdf94ba1f4b79ee19de21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hexagonPrefab: {fileID: 3946915483138671785, guid: b1bfc2d2cda6d3d45a03886f50d4fa2b, type: 3}
+  hexagonColors: []
 --- !u!1 &5471436225457925458
 GameObject:
   m_ObjectHideFlags: 0

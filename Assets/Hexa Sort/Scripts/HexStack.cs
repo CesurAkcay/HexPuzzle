@@ -3,6 +3,16 @@ using UnityEngine;
 
 public class HexStack : MonoBehaviour
 {
+
+    public void Initialize()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Add(transform.GetChild(i).GetComponent<Hexagon>());
+        }
+
+        Place();
+    }
     public List<Hexagon> Hexagons { get; private set; }
     public int Count { get; internal set; }
 
