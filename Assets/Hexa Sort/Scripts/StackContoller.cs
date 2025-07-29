@@ -55,6 +55,7 @@ public class StackContoller : MonoBehaviour
         if (hit.collider == null)
         {
             Debug.Log("Did not clicked any hexagon");
+            return;
         }
 
         currentStack = hit.collider.GetComponent<Hexagon>().HexStack; // if we hit something we grab the hexagon component and grab the HexStack attached that hexagon

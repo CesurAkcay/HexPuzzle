@@ -18,15 +18,10 @@ public class HexStack : MonoBehaviour
     }
     public void Remove(Hexagon hexagon)
     {
-        if (Hexagons != null)
-        {
-            Hexagons.Remove(hexagon);
-        }
-        if (Hexagons.Count <= 0)
-        {
-            DestroyImmediate(gameObject);        
-        }
+        Hexagons.Remove(hexagon);
 
+        if (Hexagons.Count <= 0)
+            DestroyImmediate(gameObject);
     }
 
     public Color GetTopHexagonColor()

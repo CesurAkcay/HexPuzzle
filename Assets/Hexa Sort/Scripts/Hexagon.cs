@@ -4,7 +4,7 @@ public class Hexagon : MonoBehaviour
 {
     [Header("Elements")]
     [SerializeField] private new Renderer renderer;
-     [SerializeField] private new Collider collider ;
+    [SerializeField] private new Collider collider;
     public HexStack HexStack { get; private set; }
 
     public Color color
@@ -26,15 +26,31 @@ public class Hexagon : MonoBehaviour
         transform.SetParent(parent);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void MoveToLocal(Vector3 targerLocalPos)
     {
-        
+        LeanTween.cancel(gameObject);
+
+        float delay = transform.GetSiblingIndex() * .01f;
+
+        LeanTween.moveLocal(gameObject, targerLocalPos, .2f)
+            .setEase(LeanTweenType.easeInOutSine)
+            .setDelay(delay);
+
+        Vector3 direction = (targerLocalPos - transform.localPosition).With(y: 0).normalized;
+        Vector3 rotationAxis = Vector3.Cross(Vector3.up, direction);
+
+        LeanTween.rotateAround(gameObject, rotationAxis, 180, .2f)
+            .setEase(LeanTweenType.easeInOutSine)
+            .setDelay(delay);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Vanish(float delay)
     {
-        
+        LeanTween.cancel(gameObject);
+
+        LeanTween.scale(gameObject, Vector3.zero, .2f)
+        .setEase(LeanTweenType.easeInOutSine)
+        .setDelay(delay)
+        .setOnComplete(() => Destroy(gameObject));
     }
 }
