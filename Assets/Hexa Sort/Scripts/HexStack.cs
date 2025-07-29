@@ -4,6 +4,7 @@ using UnityEngine;
 public class HexStack : MonoBehaviour
 {
     public List<Hexagon> Hexagons { get; private set; }
+    public int Count { get; internal set; }
 
     public void Add(Hexagon hexagon)
     {
@@ -13,18 +14,25 @@ public class HexStack : MonoBehaviour
         }
 
         Hexagons.Add(hexagon);
+        hexagon.SetParent(transform);
+    }
+    public void Remove(Hexagon hexagon)
+    {
+        if (Hexagons != null)
+        {
+            Hexagons.Remove(hexagon);
+        }
+        if (Hexagons.Count <= 0)
+        {
+            DestroyImmediate(gameObject);        
+        }
+
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Color GetTopHexagonColor()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        return Hexagons[^1].color; // this is how you return the last index of a list
+        //return Hexagons[Hexagons.ChildCount - 1].color;
     }
 
     public void Place()
@@ -33,5 +41,10 @@ public class HexStack : MonoBehaviour
         {
             hexagon.DisableCollider();
         }
+    }
+
+    public bool Contains(Hexagon hexagon)
+    {
+        return Hexagons.Contains(hexagon);
     }
 }

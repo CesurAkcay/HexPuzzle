@@ -64,7 +64,7 @@ public class StackSpawner : MonoBehaviour
 
         Color[] colorArray = GetRandomColors();
 
-        for (int i = amount - 1; i >= 0; i--)
+        for (int i = 0; i < amount ; i++)
         {
             // if the index is less than the first color hexagon count we gonna grap first color otherwise second one
             Vector3 hexagonLocalPosition = Vector3.up * i * .2f; //Because i know that one hexagon is .2 deep

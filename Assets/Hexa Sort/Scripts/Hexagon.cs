@@ -21,6 +21,11 @@ public class Hexagon : MonoBehaviour
     }
     public void DisableCollider() => collider.enabled = false;
 
+    public void SetParent(Transform parent)
+    {
+        transform.SetParent(parent);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
