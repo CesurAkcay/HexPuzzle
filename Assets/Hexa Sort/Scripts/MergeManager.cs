@@ -85,7 +85,7 @@ public class MergeManager : MonoBehaviour
         //Check the updated cells
         //Repeat
     }
-    private List<GridCell> GetNeighborGridCells(GridCell gridCell)
+    public List<GridCell> GetNeighborGridCells(GridCell gridCell)
     {
         // Does this cell has neighbors ?
         LayerMask gridCellMask = 1 << gridCell.gameObject.layer; // we create a layer mask with this grid cells layer. This will be helpful to detect any other grid cell
@@ -226,6 +226,7 @@ public class MergeManager : MonoBehaviour
         yield return new WaitForSeconds(.2f + (similarHexagonCount + 1) * .01f);
     }
 
+   
 }
 
 //--------  notes -----------------
