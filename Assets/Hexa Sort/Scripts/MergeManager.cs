@@ -8,6 +8,9 @@ public class MergeManager : MonoBehaviour
 
     [Header("Elements")]
     private List<GridCell> updatedCells = new List<GridCell>();
+
+    public static event System.Action<int> OnMergeCompleted;
+    public static event System.Action<int, Color> OnStackCompleted;
     private void Awake()
     {
         StackContoller.onStackPlaced += StackPlacedCallback;
@@ -182,6 +185,9 @@ public class MergeManager : MonoBehaviour
             hexagon.MoveToLocal(targetLocalPosition);
             //hexagon.transform.localPosition = targetLocalPosition;
         }
+
+        OnMergeCompleted?.Invoke(hexagonsToAdd.Count);
+        Debug.Log($"Merge completed with {hexagonsToAdd.Count} hexagons!");
     }
 
 
@@ -209,6 +215,9 @@ public class MergeManager : MonoBehaviour
             yield break;
 
         float delay = 0;
+
+        OnStackCompleted?.Invoke(similarHexagons.Count, topColor);
+        Debug.Log($"Stack completed with {similarHexagons.Count} hexagons!"); // Debug line
 
         while (similarHexagons.Count > 0)
         {
