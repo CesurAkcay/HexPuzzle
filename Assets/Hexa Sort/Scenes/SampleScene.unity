@@ -1610,7 +1610,7 @@ MonoBehaviour:
   - levelPrefab: {fileID: 977677579771562782, guid: e17c1081625715c4ca2f15f6f7a07605, type: 3}
     targetScore: 1000
     levelName: 1
-  - levelPrefab: {fileID: 977677579771562782, guid: b5e980bc021ea604f8601f70ca10cc4e, type: 3}
+  - levelPrefab: {fileID: 977677579771562782, guid: 71f608794f1d7f446b66a76b1682f13a, type: 3}
     targetScore: 700
     levelName: 2
   completePanel: {fileID: 1855459366}

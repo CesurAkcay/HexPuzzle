@@ -129,6 +129,7 @@ MonoBehaviour:
   grid: {fileID: 438170158255073698, guid: 814b417f1bfea5746952e3be0a325af3, type: 3}
   hexagon: {fileID: 5299413551866403220, guid: 150a04a34b3bb0e47bea7217448f2b0f, type: 3}
   gridSize: 3
+  useCustomDesign: 1
 --- !u!1 &1094886902918911509
 GameObject:
   m_ObjectHideFlags: 0

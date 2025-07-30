@@ -25,10 +25,12 @@ public class HexStack : MonoBehaviour
 
         Hexagons.Add(hexagon);
         hexagon.SetParent(transform);
+        Count = Hexagons.Count;
     }
     public void Remove(Hexagon hexagon)
     {
         Hexagons.Remove(hexagon);
+        Count = Hexagons.Count;
 
         if (Hexagons.Count <= 0)
             DestroyImmediate(gameObject);
