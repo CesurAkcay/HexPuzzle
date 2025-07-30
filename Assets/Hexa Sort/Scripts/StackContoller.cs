@@ -24,7 +24,7 @@ public class StackContoller : MonoBehaviour
 
     }
 
- 
+
     void Update()
     {
         ManageControl();
@@ -106,7 +106,7 @@ public class StackContoller : MonoBehaviour
         else
         {
             DraggingAboveNonOccupiedGridCell(gridCell);
-  
+
         }
     }
     private void DraggingAboveNonOccupiedGridCell(GridCell gridCell)
@@ -145,5 +145,10 @@ public class StackContoller : MonoBehaviour
     private Ray GetClickedRay() //sent a ray to scene from mouse location
     {
         return Camera.main.ScreenPointToRay(Input.mousePosition);
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("StackController enabled");
     }
 }

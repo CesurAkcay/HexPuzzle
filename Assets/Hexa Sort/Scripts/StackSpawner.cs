@@ -28,6 +28,17 @@ public class StackSpawner : MonoBehaviour
 
     }
 
+    public void ResetForNewLevel()
+    {
+        stackCounter = 0;
+    }
+
+    public void ForceGenerateStacks()
+    {
+        Debug.Log("Force generating stacks");
+        GenerateStacks();
+    }
+
     private void StackPlacedCallback(GridCell cell)
     {
         stackCounter++;
@@ -46,7 +57,19 @@ public class StackSpawner : MonoBehaviour
     }
 
     private void GenerateStacks()
-    {
+    {   
+         // Clear existing stacks first
+        for (int i = 0; i < stackPositionParent.childCount; i++)
+        {
+            Transform child = stackPositionParent.GetChild(i);
+            if (child.childCount > 0)
+            {
+                // Destroy existing stack if any
+                DestroyImmediate(child.GetChild(0).gameObject);
+            }
+        }
+
+        // Generate new stacks
         for (int i = 0; i < stackPositionParent.childCount; i++)
         {
             GenerateStack(stackPositionParent.GetChild(i));

@@ -21,12 +21,13 @@ public class ScoreManager : MonoBehaviour
 
     private int currentScore = 0;
     private int currentCombo = 0;
+    private int currentLevel = 1;
     private int targetScore;
     private bool isComboActive = false;
 
     public static ScoreManager Instance { get; private set; }
 
-    void Awake()
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -43,8 +44,16 @@ public class ScoreManager : MonoBehaviour
 
     private void OnDestroy()
     {
-         MergeManager.OnMergeCompleted -= OnMergeCompleted;
-         MergeManager.OnStackCompleted -= OnStackCompleted;
+        MergeManager.OnMergeCompleted -= OnMergeCompleted;
+        MergeManager.OnStackCompleted -= OnStackCompleted;
+    }
+
+    public void SetLevelData(int level, int target)
+    {
+        currentLevel = level;
+        targetScore = target;
+        currentScore = 0; //Reset score for next level
+        UpdateUI();
     }
     private void OnStackCompleted(int hexagonCount, Color color)
     {
@@ -61,7 +70,7 @@ public class ScoreManager : MonoBehaviour
     }
     void Start()
     {
-        InitializeLevel();
+        UpdateUI();
     }
 
     private void OnMergeCompleted(int hexaagonCount)
@@ -126,6 +135,9 @@ public class ScoreManager : MonoBehaviour
         if (targetScoreText != null)
             targetScoreText.text = $"Target Score: {targetScore}";
 
+        if (levelText != null)
+            levelText.text = $"Level: {currentLevel}";
+        
     }
 
     private void LevelComplete()
@@ -141,14 +153,14 @@ public class ScoreManager : MonoBehaviour
         Debug.Log($"Level Complete!  Score : {currentScore}/{targetScore}");
     }
 
-    private void InitializeLevel()
-    {
-        targetScore = 500;
+    // private void InitializeLevel()
+    // {
+    //     targetScore = 500;
 
-        UpdateUI();
-        Debug.Log($"Level initialized with target score: {targetScore}");
+    //     UpdateUI();
+    //     Debug.Log($"Level initialized with target score: {targetScore}");
 
-    }
+    // }
 
     public int GetCurrentScore()
     {
@@ -157,5 +169,28 @@ public class ScoreManager : MonoBehaviour
     public int GetCurrentCombo()
     {
         return currentCombo;
+    }
+
+    public int GetCurrentLevel()
+    {
+        return currentLevel;
+    }
+
+    public void LoadNextLevel()
+    {
+        if (levelCompletePanel != null)
+        {
+            levelCompletePanel.SetActive(false);
+        }
+
+        // Re-enable game controls
+        FindFirstObjectByType<StackContoller>().enabled = true;
+
+        //Load next level through LevelManager
+        if (LevelManager.Instance != null)
+        {
+            LevelManager.Instance.LoadNextLevel();
+        }
+
     }
 }

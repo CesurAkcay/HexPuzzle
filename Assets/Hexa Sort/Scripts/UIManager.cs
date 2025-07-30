@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 public class GameOverManager : MonoBehaviour
 {
     [Header("UI Elements")]
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private Button restartButton;
-    [SerializeField] private Text gameOverText;
+    [SerializeField] private TextMeshProUGUI gameOverText;
     
     [Header("Game Controllers")]
     [SerializeField] private StackContoller stackController;
@@ -21,7 +22,8 @@ public class GameOverManager : MonoBehaviour
         if (restartButton != null)
             restartButton.onClick.AddListener(RestartGame);
     }
-    
+
+  
     private void OnDestroy()
     {
         StackContoller.onStackPlaced -= CheckForGameOver;
