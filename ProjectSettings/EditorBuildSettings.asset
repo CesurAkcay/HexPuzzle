@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Hexa Sort/Scenes/Main Menu Shader.unity
+    guid: 3d63d15d94de66d469cff26e0b2c8e26
+  - enabled: 1
     path: Assets/Hexa Sort/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:

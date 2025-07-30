@@ -1608,11 +1608,20 @@ MonoBehaviour:
   levelParent: {fileID: 865470774}
   levels:
   - levelPrefab: {fileID: 977677579771562782, guid: e17c1081625715c4ca2f15f6f7a07605, type: 3}
-    targetScore: 1000
+    targetScore: 100
     levelName: 1
   - levelPrefab: {fileID: 977677579771562782, guid: 71f608794f1d7f446b66a76b1682f13a, type: 3}
-    targetScore: 700
+    targetScore: 5000
     levelName: 2
+  - levelPrefab: {fileID: 977677579771562782, guid: b5e980bc021ea604f8601f70ca10cc4e, type: 3}
+    targetScore: 3000
+    levelName: 3
+  - levelPrefab: {fileID: 977677579771562782, guid: 6bf8ec7e49493074c9b2d1cba0dacb73, type: 3}
+    targetScore: 3000
+    levelName: 3
+  - levelPrefab: {fileID: 977677579771562782, guid: b5e980bc021ea604f8601f70ca10cc4e, type: 3}
+    targetScore: 5000
+    levelName: 3
   completePanel: {fileID: 1855459366}
 --- !u!1 &1149722170
 GameObject:

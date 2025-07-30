@@ -29,13 +29,25 @@ public class Tower : MonoBehaviour
 
     private void Fill()
     {
+        Fill(fillIncrement);
+    }
+    public void Fill(float increment)
+    {
         if (fillPercent >= 1)
             return;
 
-        fillPercent += fillIncrement;
+        fillPercent += increment;
+        fillPercent = Mathf.Clamp01(fillPercent); // Keep between 0 and 1
+        
         UpdateMaterials();
+        
+        if (animator != null)
+            animator.Play("Bump");
+    }
 
-        animator.Play("Bump");
+    public float GetFillPercent()
+    {
+        return fillPercent;
     }
 
     private void UpdateMaterials()
