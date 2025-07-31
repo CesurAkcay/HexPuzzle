@@ -52,7 +52,6 @@ public class GridGenerator : MonoBehaviour
             }
         }
 
-        Debug.Log($"Generated {hexCount} default grid hexagons");
     }
 
     private void InitializeExistingGridCells()

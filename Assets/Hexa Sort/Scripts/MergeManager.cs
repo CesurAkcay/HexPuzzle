@@ -187,7 +187,6 @@ public class MergeManager : MonoBehaviour
         }
 
         OnMergeCompleted?.Invoke(hexagonsToAdd.Count);
-        Debug.Log($"Merge completed with {hexagonsToAdd.Count} hexagons!");
     }
 
 
@@ -217,7 +216,6 @@ public class MergeManager : MonoBehaviour
         float delay = 0;
 
         OnStackCompleted?.Invoke(similarHexagons.Count, topColor);
-        Debug.Log($"Stack completed with {similarHexagons.Count} hexagons!"); // Debug line
 
         while (similarHexagons.Count > 0)
         {

@@ -99,6 +99,13 @@ public class StackContoller : MonoBehaviour
     {
         GridCell gridCell = hit.collider.GetComponent<GridCell>();
 
+        if (gridCell == null)
+        {
+            // If we didn't hit a Gridcell, treat as dragging abpve ground
+            DraggingAboveGround();
+            return;
+        }
+
         if (gridCell.IsOccupied)
         {
             DraggingAboveGround();

@@ -23,16 +23,13 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("LevelManager Awake called");
 
         if (Instance == null)
         {
             Instance = this;
-            Debug.Log("LevelManager: I am the first instance, setting as singleton");
         }
         else
         {
-            Debug.Log($"LevelManager: Another instance already exists ({Instance.name}), destroying myself ({gameObject.name})");
             Destroy(gameObject);
         }
     }
@@ -49,7 +46,6 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel(int levelIndex)
     {
-        Debug.Log($"=== LoadLevel called with index: {levelIndex} ===");
     
         // Check if we have levels
         if (levels == null || levels.Length == 0)
@@ -109,13 +105,11 @@ public class LevelManager : MonoBehaviour
             yield break;
         }
     
-        Debug.Log($"Attempting to instantiate: {levelData.levelPrefab.name}");
     
         // Spawn new level
         currentLevelInstance = Instantiate(levelData.levelPrefab, levelParent);
         currentLevelInstance.SetActive(true);
 
-        Debug.Log($"Successfully instantiated: {currentLevelInstance.name}");
 
         // Wait gor GridGenerator to initialize
         yield return new WaitForEndOfFrame();
@@ -139,14 +133,11 @@ public class LevelManager : MonoBehaviour
         if (stackController != null)
         {
             stackController.enabled = true;
-            Debug.Log("StackController re-enabled");
         }
         // Verify grid cells exist
         yield return null;
         GridCell[] gridCells = FindObjectsByType<GridCell>(FindObjectsSortMode.None);
-        Debug.Log($"Found {gridCells.Length} grid cells after level load");
 
-        Debug.Log($"=== Level {levelData.levelName} loaded successfully ===");
     
     }
 
